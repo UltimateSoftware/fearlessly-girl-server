@@ -3,11 +3,13 @@ var express = require('express'),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
   Chapter = require('./api/models/chapterModel'), //created model loading here
+  Member = require('./api/models/memberModel'),
+  Address = require('./api/models/addressModel'),
   bodyParser = require('body-parser');
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Tododb');
+mongoose.connect('mongodb://localhost:27017');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -19,4 +21,4 @@ routes(app); //register the route
 app.listen(port);
 
 
-console.log('todo list RESTful API server started on: ' + port);
+console.log('RESTful API server started on: ' + port);

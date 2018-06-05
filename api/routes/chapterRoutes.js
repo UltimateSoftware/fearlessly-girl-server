@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = (app) => {
+module.exports = app => {
   var chapters = require('../controllers/chapterController');
 
   // chapter routes

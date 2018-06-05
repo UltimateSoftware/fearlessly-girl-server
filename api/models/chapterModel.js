@@ -4,10 +4,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ChapterSchema = new Schema({
-  name: {
+  school: {
     type: String,
-    required: 'Kindly enter the name of the task'
+    required: true
   },
+  location: {type: mongoose.Schema.Types.ObjectId, ref: 'Address'},
+  members: {type: [mongoose.Schema.Types.ObjectId], ref: 'Members'},
+  primaryContact1: {type: mongoose.Schema.Types.ObjectId, ref: 'Members'},
+  primaryContact2: {type: mongoose.Schema.Types.ObjectId, ref: 'Members'},
   createdDate: {
     type: Date,
     default: Date.now
