@@ -9,7 +9,8 @@ var MemberSchema = new Schema({
   position: {
     type: String,
     enum: ['Advisor', 'Chair', 'Vice Chair', 'Treasurer'],
-  }
+  },
+  phoneNumber: String,
 });
 
 module.exports = mongoose.model('Members', MemberSchema);
