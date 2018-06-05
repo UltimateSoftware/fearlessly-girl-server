@@ -5,11 +5,13 @@ var express = require('express'),
   Chapter = require('./api/models/chapterModel'), //created model loading here
   Member = require('./api/models/memberModel'),
   Address = require('./api/models/addressModel'),
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  env = require('env-variable')();
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017');
+
+env.MONGO_URL ? mongoose.connect(env.MONGO_URL) : mongoose.connect('mongodb://localhost:27017');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
